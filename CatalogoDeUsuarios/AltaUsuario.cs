@@ -101,7 +101,6 @@ namespace CatalogoDeUsuarios
 
                 usuario.Id = _usuario != null ? _usuario.Id : 0;
                 _businessLogicLayer.GuardarUsuario(usuario);
-                Console.WriteLine("git");
         }
 
         private void LimpiarFormulario()

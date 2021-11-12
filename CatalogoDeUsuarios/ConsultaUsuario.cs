@@ -58,7 +58,11 @@ namespace CatalogoDeUsuarios
                 altaUsuario.ShowDialog(this);
             }else if (cell.Value.ToString() == "Eliminar")
             {
-                EliminarUsuario(Convert.ToInt32((gridUsuario.Rows[e.RowIndex].Cells[0]).Value.ToString()));
+                DialogResult result = MessageBox.Show("¿Estás seguro que quieres eliminar este Usuario?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (result == DialogResult.Yes)
+                {
+                    EliminarUsuario(Convert.ToInt32((gridUsuario.Rows[e.RowIndex].Cells[0]).Value.ToString()));
+                }
             }
 
         }
