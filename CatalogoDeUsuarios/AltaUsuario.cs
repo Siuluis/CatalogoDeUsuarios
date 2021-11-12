@@ -9,7 +9,7 @@ namespace CatalogoDeUsuarios
         private BusinessLogicLayer _businessLogicLayer;
         private Usuario _usuario;
         string nombrecolumna;
-
+        string editar;
         public AltaUsuario()
         {
             InitializeComponent();
@@ -58,7 +58,7 @@ namespace CatalogoDeUsuarios
             }
             else
             {
-                if (_dataAccessLayer.Existe(txt_claveUsuario.Text, txt_nombre.Text) == "si")
+                if (_dataAccessLayer.Existe(txt_claveUsuario.Text, txt_nombre.Text) == "si" || editar == "editar")
                 {
                     Guardar();
                     this.Close();
@@ -121,6 +121,7 @@ namespace CatalogoDeUsuarios
             if (usuario != null)
             {
                 LimpiarFormulario();
+                editar = "editar";
                 txt_claveSistema.Text = usuario.Clave;
                 txt_claveUsuario.Text = usuario.ClaveUsuario;
                 txt_nombre.Text = usuario.Nombre;
